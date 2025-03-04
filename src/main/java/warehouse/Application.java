@@ -6,13 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import warehouse.model.ProductData;
+import warehouse.repository.ProductRepository;
 import warehouse.repository.WarehouseRepository;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
 	@Autowired
-	private WarehouseRepository repository;
+	private ProductRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
