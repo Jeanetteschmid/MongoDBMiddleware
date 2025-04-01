@@ -1,13 +1,14 @@
 package warehouse.model;
 
 import java.sql.Timestamp;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.data.annotation.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "warehouses")
-public class WarehouseData {
+public class WarehouseData{
     @Id
     private String warehouseID;
 
@@ -22,7 +23,8 @@ public class WarehouseData {
 
     public WarehouseData() {}
 
-    public WarehouseData(String name, String address, String postCode, String city, String country, Timestamp t, List<ProductData> p) {
+    public WarehouseData(String warehouseID, String name, String address, String postCode, String city, String country, Timestamp t, List<ProductData> p) {
+        this.warehouseID = warehouseID;
         this.warehouseName = name;
         this.warehouseAddress = address;
         this.warehousePostalCode = postCode;
@@ -54,4 +56,14 @@ public class WarehouseData {
 
     public List<ProductData> getProducts() { return productData; }
     public void setProducts(List<ProductData> products) { this.productData = products; }
+
+    /**
+     * Methods
+     */
+    @Override
+    public String toString() {
+        String info = String.format("Product Info: WarehouseID = %s, WarehouseName = %s, WarehouseAddress = %s, WarehousePostalCode = %s, WarehouseCity = %s, WarehouseCountry = %s, Timestamp = %s ,Productdata = %s",
+                warehouseID, warehouseName, warehouseAddress, warehousePostalCode, warehouseCity, warehouseCountry, timestamp, productData.toString());
+        return info;
+    }
 }

@@ -3,11 +3,11 @@ package warehouse.repository;
 import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import warehouse.model.ProductData;
+import warehouse.model.WarehouseData;
 
-public interface WarehouseRepository extends MongoRepository<ProductData, String> {
-
-    public ProductData findByProductID(String productID);
-    public List<ProductData> findByWarehouseID(String warehouseID);
+public interface WarehouseRepository extends MongoRepository<WarehouseData, String> {
+    public List<WarehouseData> findAll();
+    public WarehouseData findByWarehouseID(String warehouseID);
+    public void deleteByWarehouseID(String warehouseID);
 
  }

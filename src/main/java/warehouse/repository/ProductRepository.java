@@ -9,5 +9,7 @@ public interface ProductRepository extends MongoRepository<ProductData, String> 
 
     public ProductData findByProductID(String productID);
     public List<ProductData> findByWarehouseID(String warehouseID);
+    public List<ProductData> findAll();
 
+    public void deleteByProductID(String productID);
 }
