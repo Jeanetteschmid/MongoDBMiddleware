@@ -31,14 +31,15 @@ public class Application implements CommandLineRunner {
 		repository.deleteAll();
 		wrepository.deleteAll();
 
-		ProductData p1 = new ProductData("1","00-443175","Bio Orangensaft Sonne","Getraenk", 2500);
-		ProductData p2 = new ProductData("1","00-871895","Bio Apfelsaft Gold","Getraenk", 3420);
-		ProductData p3 = new ProductData("1","01-926885","Ariel Waschmittel Color","Waschmittel", 478);
-		ProductData p4 = new ProductData("1","02-234811","Mampfi Katzenfutter Rind","Tierfutter", 1324);
+		ProductData p1 = new ProductData("1","00-443175","Bio Orangensaft Sonne","Getraenk", 1);
+		ProductData p2 = new ProductData("1","00-871895","Bio Apfelsaft Gold","Getraenk", 1);
+		ProductData p3 = new ProductData("1","01-926885","Ariel Waschmittel Color","Waschmittel", 1);
+		ProductData p4 = new ProductData("1","02-234811","Mampfi Katzenfutter Rind","Tierfutter", 2);
 		ProductData p5 = new ProductData("2","03-893173","Saugstauberbeutel Ingres","Reinigung", 7390);
 		ProductData p6 = new ProductData("2","04-567812","Mikrofasertuch Ultra","Reinigung", 499);
 		ProductData p7 = new ProductData("2","05-981234","Staubsaugerfilter Pro","Reinigung", 1299);
 		ProductData p8 = new ProductData("2","06-753159","Fensterreiniger Spray","Reinigung", 899);
+		ProductData p9 = new ProductData("2","00-443175","Bio Orangensaft Sonne","Getraenk", 1);
 
 		// POST /products
 		repository.save(p1);
@@ -49,6 +50,7 @@ public class Application implements CommandLineRunner {
 		repository.save(p6);
 		repository.save(p7);
 		repository.save(p8);
+		repository.save(p9);
 
 		// POST /warehouse
 		wrepository.save(new WarehouseData("1", "Lager Hamburg", "Musterstraße 1", "20095", "Hamburg", "Deutschland", null, repository.findByWarehouseID("1")));
